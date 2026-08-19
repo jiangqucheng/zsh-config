@@ -97,6 +97,9 @@ source "$ZDOTDIR/plugins.zsh"
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
+# Transient prompt (collapses old prompts, p10k-style)
+source "$ZDOTDIR/transient-prompt.zsh"
+
 # =========================================================
 # User Custom Configurations
 # =========================================================
