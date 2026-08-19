@@ -30,7 +30,7 @@ zle-line-init() {
   local saved_rprompt=$RPROMPT
 
   # 精简版：只保留箭头（会根据上一条命令是否成功变红/变绿）
-  PROMPT="$(starship module character)"
+  PROMPT="$(starship module character --status=$STARSHIP_CMD_STATUS --keymap=${KEYMAP:-viins})"
   RPROMPT=''
   zle .reset-prompt
 
