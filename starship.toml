@@ -24,6 +24,7 @@ $conda\
 $fill\
 [ ]()\
 $battery\
+$cmd_duration\
 [](fg:widget_time_bg_color)\
 [ $time  ](bg:widget_time_bg_color fg:widget_time_fg_color)\
 \n$character"""
@@ -41,6 +42,13 @@ palette = 'peter'
 [fill]
 symbol = '·'
 style = 'fg:#444444'
+
+[cmd_duration]
+min_time = 500
+format = """\
+[](fg:widget_duration_bg_color)\
+[ $duration ](bg:widget_duration_bg_color fg:widget_duration_fg_color)\
+"""
 
 [directory]
 style = "fg:widget_directory_fg_color bg:widget_directory_bg_color"
@@ -175,3 +183,5 @@ widget_git_bg_color = "#394260"
 widget_git_fg_color = "#769ff0"
 widget_toolchain_bg_color = "#212736"
 widget_toolchain_fg_color = "#769ff0"
+widget_duration_bg_color = "yellow"
+widget_duration_fg_color = "#090c0c"
