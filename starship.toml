@@ -90,9 +90,16 @@ symbol = ""
 style = "bg:widget_git_bg_color"
 format = '[[ $symbol $branch ](fg:widget_git_fg_color bg:widget_git_bg_color)]($style)'
 
+# [git_status]
+# style = "bg:widget_git_bg_color"
+# format = '[[($all_status$ahead_behind )](fg:widget_git_fg_color bg:widget_git_bg_color)]($style)'
+
 [git_status]
-style = "bg:widget_git_bg_color"
-format = '[[($all_status$ahead_behind )](fg:widget_git_fg_color bg:widget_git_bg_color)]($style)'
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+style = "fg:widget_git_fg_color bg:widget_git_bg_color"
+format = '([\[$all_status$ahead_behind\] ]($style))'
 
 [git_commit]
 disabled = false
@@ -103,6 +110,7 @@ tag_symbol = '󰓹 '
 
 [git_metrics]
 disabled = false
+only_nonzero_diffs = true
 added_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
 deleted_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
 format = '[[+$added]($added_style)/[-$deleted]($deleted_style)](fg:widget_git_fg_color bg:widget_git_bg_color)'
