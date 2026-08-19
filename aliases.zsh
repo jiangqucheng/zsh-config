@@ -3,7 +3,7 @@
 # =========================================================
 alias ls='eza --icons'
 alias l='eza -lh --icons --git'       # Detailed listing
-alias ll='eza -lah --icons --git'     # Detailed listing including hidden files
+alias ll='eza -lagh --icons --git'     # Detailed listing including hidden files
 alias la='ll'                         # Detailed listing including hidden files
 alias tree='eza --tree --icons'       # Tree view
 compdef eza=ls                        # Reuse ls completions for eza
