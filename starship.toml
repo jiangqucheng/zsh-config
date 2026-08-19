@@ -113,7 +113,7 @@ disabled = false
 only_nonzero_diffs = true
 added_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
 deleted_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
-format = '[[+$added]($added_style)/[-$deleted]($deleted_style)](fg:widget_git_fg_color bg:widget_git_bg_color)'
+format = '[[+$added]($added_style)/[-$deleted]($deleted_style) ](fg:widget_git_fg_color bg:widget_git_bg_color)'
 
 [nodejs]
 symbol = ""
