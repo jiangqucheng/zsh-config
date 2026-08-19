@@ -9,7 +9,9 @@ $os\
 $directory\
 [](fg:widget_directory_bg_color bg:widget_git_bg_color)\
 $git_branch\
+$git_commit\
 $git_status\
+$git_metrics\
 [](fg:widget_git_bg_color bg:widget_toolchain_bg_color)\
 $nodejs\
 $bun\
@@ -24,6 +26,8 @@ $conda\
 $fill\
 [ ]()\
 $battery\
+$sudo\
+$jobs\
 $cmd_duration\
 [](fg:widget_time_bg_color)\
 [ $time  ](bg:widget_time_bg_color fg:widget_time_fg_color)\
@@ -43,13 +47,25 @@ palette = 'peter'
 symbol = '·'
 style = 'fg:#444444'
 
+[jobs]
+symbol = '+'
+number_threshold = 2
+symbol_threshold = 1
+
 [cmd_duration]
 min_time = 500
 format = """\
-[](fg:widget_duration_bg_color)\
-[ $duration ](bg:widget_duration_bg_color fg:widget_duration_fg_color)\
-[](fg:widget_duration_bg_color)\
+[](fg:widget_duration_bg_color)\
+[󱦟 $duration](bg:widget_duration_bg_color fg:widget_duration_fg_color)\
+[](fg:widget_duration_bg_color)\
+[ ]()\
 """
+
+[sudo]
+style = 'bold green'
+format = '[$symbol]($style)'
+symbol = '   '
+disabled = false
 
 [directory]
 style = "fg:widget_directory_fg_color bg:widget_directory_bg_color"
@@ -74,6 +90,19 @@ format = '[[ $symbol $branch ](fg:widget_git_fg_color bg:widget_git_bg_color)]($
 style = "bg:widget_git_bg_color"
 format = '[[($all_status$ahead_behind )](fg:widget_git_fg_color bg:widget_git_bg_color)]($style)'
 
+[git_commit]
+disabled = false
+style = "bg:widget_git_bg_color"
+commit_hash_length = 4
+format = '[[\($hash$tag\)](fg:widget_git_fg_color bg:widget_git_bg_color) ]($style)'
+tag_symbol = '󰓹 '
+
+[git_metrics]
+disabled = false
+added_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
+deleted_style = "fg:widget_git_fg_color bg:widget_git_bg_color"
+format = '[[+$added]($added_style)/[-$deleted]($deleted_style)](fg:widget_git_fg_color bg:widget_git_bg_color)'
+
 [nodejs]
 symbol = ""
 style = "bg:widget_toolchain_bg_color"
@@ -97,7 +126,7 @@ format = '[[ $symbol ($version) ](fg:widget_toolchain_fg_color bg:widget_toolcha
 [python]
 symbol = ""
 style = "bg:widget_toolchain_bg_color"
-format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
+format = '[[ $symbol( $version)(\($virtualenv\)) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
 
 [docker_context]
 symbol = ""
