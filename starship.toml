@@ -20,15 +20,27 @@ $python\
 $docker_context\
 $conda\
 [](fg:widget_toolchain_bg_color)\
-\n$character"""
-
-palette = 'peter'
-
-right_format = """
+[ ]()\
+$fill\
+[ ]()\
 $battery\
 [](fg:widget_time_bg_color)\
 [ $time  ](bg:widget_time_bg_color fg:widget_time_fg_color)\
-\n"""
+\n$character"""
+
+add_newline = true
+
+palette = 'peter'
+
+# right_format = """
+# $battery\
+# [](fg:widget_time_bg_color)\
+# [ $time  ](bg:widget_time_bg_color fg:widget_time_fg_color)\
+# \n"""
+
+[fill]
+symbol = '·'
+style = 'fg:#444444'
 
 [directory]
 style = "fg:widget_directory_fg_color bg:widget_directory_bg_color"
@@ -63,6 +75,11 @@ symbol = ""
 style = "bg:widget_toolchain_bg_color"
 format = '[[ $symbol ($version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
 
+[c]
+symbol = " "
+style = "bg:widget_toolchain_bg_color"
+format = '[[ $symbol( $version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
+
 [rust]
 symbol = ""
 style = "bg:widget_toolchain_bg_color"
@@ -88,6 +105,16 @@ ignore_base = false
 symbol = ""
 style = "bg:widget_toolchain_bg_color"
 format = '[[ $symbol ($version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
+
+[java]
+symbol = " "
+style = "bg:widget_toolchain_bg_color"
+format = '[[ $symbol( $version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:widget_toolchain_bg_color"
+format = '[[ $symbol( $version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
 
 [php]
 symbol = ""
@@ -136,12 +163,12 @@ RedHatEnterprise = "󱄛"
 Pop = ""
 
 [palettes.peter]
+character_success_color = "#80D440"
+character_error_color = "#C83323"
 widget_time_bg_color = "#DFE5EB"
 widget_time_fg_color = "#38424B"
 widget_os_bg_color = "#DFE5EB"
 widget_os_fg_color = "#090c0c"
-character_success_color = "#80D440"
-character_error_color = "#C83323"
 widget_directory_bg_color = "#769ff0"
 widget_directory_fg_color = "#e3e5e5"
 widget_git_bg_color = "#394260"

@@ -106,3 +106,13 @@ source "$ZDOTDIR/transient-prompt.zsh"
 if [[ -f "$ZDOTDIR/local.zsh" ]]; then
   source "$ZDOTDIR/local.zsh"
 fi
+
+
+# =========================================================
+# Change Window Title
+# =========================================================
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") \007"
+    # echo -ne "\033]0; $(basename "$PWD") "$USER"@"$HOST" \007"
+}
+precmd_functions+=(set_win_title)
