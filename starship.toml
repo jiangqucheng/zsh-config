@@ -74,7 +74,7 @@ disabled = false
 [directory]
 style = "fg:widget_directory_fg_color bg:widget_directory_bg_color"
 format = "[$read_only $path ]($style)"
-truncation_length = 3
+truncation_length = 8
 truncation_symbol = "…/"
 read_only = " "
 
