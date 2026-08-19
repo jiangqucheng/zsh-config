@@ -116,3 +116,17 @@ function set_win_title(){
     # echo -ne "\033]0; $(basename "$PWD") "$USER"@"$HOST" \007"
 }
 precmd_functions+=(set_win_title)
+
+
+# =========================================================
+# environment modules (if /usr/bin/modulecmd exists)
+# =========================================================
+if [ -x /usr/bin/modulecmd ]; then
+  case "$0" in
+          -sh|sh|*/sh)	modules_shell=sh ;;
+       -ksh|ksh|*/ksh)	modules_shell=ksh ;;
+       -zsh|zsh|*/zsh)	modules_shell=zsh ;;
+    -bash|bash|*/bash)	modules_shell=bash ;;
+  esac
+  module() { eval `/usr/bin/modulecmd $modules_shell $*`; }
+fi
