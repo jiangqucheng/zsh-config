@@ -15,6 +15,10 @@ $git_metrics\
 [](fg:widget_git_bg_color bg:widget_toolchain_bg_color)\
 $nodejs\
 $bun\
+$c\
+$cpp\
+$java\
+$kotlin\
 $rust\
 $golang\
 $php\
@@ -117,6 +121,11 @@ format = '[[ $symbol ($version) ](fg:widget_toolchain_fg_color bg:widget_toolcha
 symbol = " "
 style = "bg:widget_toolchain_bg_color"
 format = '[[ $symbol( $version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:widget_toolchain_bg_color"
+format = '[[ $symbol ($name $version) ](fg:widget_toolchain_fg_color bg:widget_toolchain_bg_color)]($style)'
 
 [rust]
 symbol = ""
