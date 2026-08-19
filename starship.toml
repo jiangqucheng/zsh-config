@@ -48,6 +48,7 @@ min_time = 500
 format = """\
 [](fg:widget_duration_bg_color)\
 [ $duration ](bg:widget_duration_bg_color fg:widget_duration_fg_color)\
+[](fg:widget_duration_bg_color)\
 """
 
 [directory]
