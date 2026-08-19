@@ -1,5 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+continuation_prompt = "[▸▹ ](dimmed white)"
+
 #[](#a3aed2)\
 
 format = """
@@ -15,16 +17,25 @@ $bun\
 $rust\
 $golang\
 $php\
-[](fg:#212736 bg:#1d2230)\
-$time\
-[ ](fg:#1d2230)\
+[](fg:#212736 )\
 \n$character"""
+
+#[](fg:#212736 bg:#1d2230)\
+
+palette = 'peter'
+
+right_format = """
+$battery\
+[](fg:widget_time_bg_color)\
+[ $time ](bg:widget_time_bg_color)\
+"""
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"
-format = "[ $path ]($style)"
+format = "[$read_only $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+read_only = " "
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -67,18 +78,19 @@ symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-#[character]
-#success_symbol = "[❯](bold #80D440)"
-#error_symbol = "[❯](bold #C83323)"
+[character]
+success_symbol = "[❯](bold character_success_color)"
+error_symbol = "[❯](bold character_error_color)"
 
 [time]
 disabled = false
+utc_time_offset = "local"
 time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+style = "bg:widget_time_bg_color fg:widget_time_fg_color"
+format = '[$time ]($style)'
 
 [os]
-style = "bg:#DFE5EB fg:#090c0c"
+style = "bg:widget_os_bg_color fg:widget_os_fg_color"
 format = "[ $symbol ]($style)"
 disabled = false
 
@@ -105,3 +117,13 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 Pop = ""
+
+[palettes.peter]
+widget_time_bg_color = "#DFE5EB"
+widget_time_fg_color = "#38424B"
+widget_os_bg_color = "#DFE5EB"
+widget_os_fg_color = "#090c0c"
+character_success_color = "#80D440"
+character_error_color = "#C83323"
+
+
