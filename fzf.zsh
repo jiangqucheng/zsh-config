@@ -6,14 +6,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix' # strip-cwd
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # UI —— Ctrl+R 会用这一套设置弹出占屏幕 60% 的历史搜索浮层
-export FZF_DEFAULT_OPTS='
---height=60%
---layout=reverse
---border=rounded
---prompt=" "
---pointer=" "
---preview-window=right:65%:wrap:border-left
-'
+export FZF_DEFAULT_OPTS='--height=60% --layout=reverse --border=rounded --prompt=" " --pointer=" " --preview-window=right:65%:wrap:border-left'
 
 export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
 export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
