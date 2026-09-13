@@ -29,6 +29,7 @@ $conda\
 [ ]()\
 $fill\
 [  ]()\
+$custom\
 $battery\
 $sudo\
 $jobs\
@@ -84,6 +85,13 @@ read_only = " "
 "Music" = " "
 "Pictures" = " "
 "~" = " ~"
+
+[custom.eslsdk]
+when = 'test -n "$ESLSDK"'
+command = 'echo "(eslsdk)"'
+style = "bold #ff8700"
+format = "[$output]($style) "
+description = "ESLSDK environment indicator"
 
 [git_branch]
 symbol = ""
