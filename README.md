@@ -114,9 +114,10 @@ the one you're currently typing at into a single colored arrow (green on
 success, red on failure) — similar to Powerlevel10k's transient prompt.
 
 This isn't an official starship feature for zsh (starship's docs only cover
-PowerShell/Fish/Bash-with-Ble.sh); it's implemented with a `zle-line-init`
-widget that temporarily swaps `$PROMPT` for a one-liner right before a command
-runs, then restores the full prompt for the next draw.
+PowerShell/Fish/Bash-with-Ble.sh); it's implemented with a `zle-line-finish`
+hook (registered via `add-zle-hook-widget`, so it coexists with
+zsh-autocomplete) that temporarily swaps `$PROMPT` for a one-liner right before
+a command runs, then restores the full prompt for the next draw.
 
 ## Notes on deviations from upstream
 

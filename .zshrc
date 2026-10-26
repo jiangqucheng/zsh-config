@@ -88,17 +88,19 @@ source "$ZDOTDIR/fzf.zsh"
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
-# Custom keybindings
-source "$ZDOTDIR/bindings.zsh"
+# Transient prompt (collapses old prompts, p10k-style). Must register its
+# zle-line-finish hook before plugins.zsh: once fast-syntax-highlighting has
+# wrapped zle-line-finish, add-zle-hook-widget recurses until FUNCNEST.
+source "$ZDOTDIR/transient-prompt.zsh"
 
 # Plugins and plugin manager
 source "$ZDOTDIR/plugins.zsh"
 
+# Custom keybindings (after plugins: zsh-autocomplete rebinds ^R/↑/↓ when sourced)
+source "$ZDOTDIR/bindings.zsh"
+
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
-
-# Transient prompt (collapses old prompts, p10k-style)
-source "$ZDOTDIR/transient-prompt.zsh"
 
 # =========================================================
 # User Custom Configurations

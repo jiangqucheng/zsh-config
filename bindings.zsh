@@ -16,6 +16,12 @@ bindkey '^F' _fzf_file_no_hidden
 # Ctrl+\ -> toggle autosuggestions (useful for screen recordings)
 bindkey '^\' autosuggest-toggle
 
-# Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
+# Ctrl+R -> fzf full-screen history search (zsh-autocomplete takes ^R otherwise)
+bindkey '^R' fzf-history-widget
+
+# Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes,
+# ^[OA/^[OB the same keys in application cursor mode)
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
