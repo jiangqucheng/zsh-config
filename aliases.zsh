@@ -1,7 +1,6 @@
 # =========================================================
 # Better ls / cat
 # =========================================================
-alias ls='eza --icons'
 alias l='eza -lh --icons --git'       # Detailed listing
 alias ll='eza -laagh --icons --git'   # Detailed listing including hidden files
 alias la='ll'                         # equivalent to `ll`
@@ -13,7 +12,6 @@ alias cat='bat'
 # =========================================================
 # Core utilities
 # =========================================================
-alias grep='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
 
