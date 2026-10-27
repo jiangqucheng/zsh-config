@@ -28,18 +28,11 @@ setopt NOBEEP
 setopt NUMERIC_GLOB_SORT # sort file10 after file9, not after file1
 
 # =========================================================
-# Smart directory navigation
-# =========================================================
-# Initialize zoxide
-eval "$(zoxide init zsh)"
-
-# =========================================================
 # Completion
 # =========================================================
-# Load completion system
-autoload -Uz compinit
-# Initialize completion with cached metadata file
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+# No compinit here: zsh-autocomplete (plugins.zsh) runs it at the first prompt.
+# Calling it earlier builds a comp dump without autocomplete's own #autoload
+# helpers ("command not found: _autocomplete__unambiguous" on Tab).
 # Enable interactive completion menu selection
 zstyle ':completion:*' menu select
 # Make completion case-insensitive
@@ -85,16 +78,20 @@ fi
 # fzf configuration
 source "$ZDOTDIR/fzf.zsh"
 
-# Aliases
-source "$ZDOTDIR/aliases.zsh"
-
 # Transient prompt (collapses old prompts, p10k-style). Must register its
 # zle-line-finish hook before plugins.zsh: once fast-syntax-highlighting has
 # wrapped zle-line-finish, add-zle-hook-widget recurses until FUNCNEST.
 source "$ZDOTDIR/transient-prompt.zsh"
 
-# Plugins and plugin manager
+# Plugins and plugin manager. Load before anything that calls compdef:
+# zsh-autocomplete queues those calls and replays them after its compinit.
 source "$ZDOTDIR/plugins.zsh"
+
+# Smart directory navigation (zoxide registers its completion via compdef)
+eval "$(zoxide init zsh)"
+
+# Aliases
+source "$ZDOTDIR/aliases.zsh"
 
 # Custom keybindings (after plugins: zsh-autocomplete rebinds ^R/↑/↓ when sourced)
 source "$ZDOTDIR/bindings.zsh"
